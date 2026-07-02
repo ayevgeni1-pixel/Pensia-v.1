@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>InvestMate AI v2.1 Web</title>
+<title>InvestMate AI v2.2</title>
 <style>
 :root{
   --bg:#050914;--panel:#10192b;--panel2:#17233a;--line:#263854;
   --text:#eef4ff;--muted:#91a0b8;--cyan:#18d4ff;--green:#00df88;--red:#ff5364;
-  --yellow:#ffd34d;--blue:#7caaff;--purple:#b889ff;
+  --yellow:#ffd34d;--blue:#7caaff;
 }
 *{box-sizing:border-box}
 body{margin:0;color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:radial-gradient(circle at 80% -10%,rgba(24,212,255,.18),transparent 34%),radial-gradient(circle at 0 0,rgba(0,223,136,.08),transparent 30%),var(--bg)}
@@ -21,27 +21,24 @@ h1{font-size:28px;margin:8px 0 4px}.muted{color:var(--muted);font-size:13px;line
 .card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:24px;padding:17px;margin:13px 0;box-shadow:0 14px 36px rgba(0,0,0,.25)}
 .hero{border-color:rgba(24,212,255,.30)}
 .label{color:var(--muted);font-size:13px;font-weight:850}.big{font-size:38px;line-height:1.05;margin:8px 0;color:var(--cyan);font-weight:950}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.mini{background:rgba(5,9,20,.45);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:12px}.mini span{display:block;color:var(--muted);font-size:12px}.mini b{display:block;margin-top:6px;font-size:16px}
-.tabs{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;position:sticky;top:0;background:rgba(5,9,20,.94);backdrop-filter:blur(12px);z-index:5;padding:10px 0;margin:14px 0}
-.tabs button{border:0;border-radius:14px;background:var(--panel2);color:var(--muted);padding:10px 2px;font-size:9.5px;font-weight:950}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}.mini{background:rgba(5,9,20,.45);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:12px}.mini span{display:block;color:var(--muted);font-size:12px}.mini b{display:block;margin-top:6px;font-size:16px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;position:sticky;top:0;background:rgba(5,9,20,.94);backdrop-filter:blur(12px);z-index:5;padding:10px 0;margin:14px 0}
+.tabs button{border:0;border-radius:14px;background:var(--panel2);color:var(--muted);padding:12px 4px;font-size:12px;font-weight:950}
 .tabs button.active{background:var(--cyan);color:#03111b}
 .section{letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-size:12px;font-weight:950;margin:22px 0 10px}
-.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)}.row:last-child{border-bottom:0}.row span{color:var(--muted)}.row b{text-align:right}
+.row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06)}.row:last-child{border-bottom:0}.row span{color:var(--muted)}.row b{text-align:right}
 .green{color:var(--green)!important}.red{color:var(--red)!important}.yellow{color:var(--yellow)!important}.cyan{color:var(--cyan)!important}
 .hidden{display:none}.brief{line-height:1.58;color:#cbd5e8}.brief b{color:var(--cyan)}
-.asset{border-bottom:1px solid rgba(255,255,255,.06);padding:13px 0}.asset:last-child{border-bottom:0}
+.asset{border-bottom:1px solid rgba(255,255,255,.06);padding:14px 0}.asset:last-child{border-bottom:0}
 .assetTop{display:flex;justify-content:space-between;gap:12px}.asset b{font-size:18px}.asset small{display:block;color:var(--muted);margin-top:4px}.right{text-align:right}
 .assetGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;color:var(--muted);font-size:12px}.assetGrid strong{display:block;color:var(--text);font-size:14px;margin-top:4px}
 .bar{height:8px;background:#263854;border-radius:999px;overflow:hidden;margin-top:10px}.fill{height:100%;background:var(--cyan);border-radius:999px}
 .ringWrap{display:flex;gap:16px;align-items:center}.ring{width:104px;height:104px;border-radius:50%;background:conic-gradient(var(--green) 0 82%,#273854 82% 100%);display:grid;place-items:center;flex:0 0 auto}.ringInner{width:76px;height:76px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font-size:24px;font-weight:950}
 .reason{font-size:14px;line-height:1.55;color:#c6d0e4}.pill{display:inline-block;background:#223653;color:#c0cbe0;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:850;margin:3px}
 .alert{background:rgba(255,211,77,.08);border-color:rgba(255,211,77,.22)}.danger{background:rgba(255,83,100,.08);border-color:rgba(255,83,100,.20)}.ok{background:rgba(0,223,136,.08);border-color:rgba(0,223,136,.20)}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 6px;border-bottom:1px solid rgba(255,255,255,.06)}th{color:var(--muted);font-size:11px;text-transform:uppercase}td:last-child,th:last-child{text-align:right}
-input,select,textarea{width:100%;background:#07101f;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:11px;font-size:15px;font-family:inherit}
-textarea{min-height:80px}.btn{border:0;background:var(--cyan);color:#03111b;border-radius:14px;padding:12px 14px;font-weight:950;width:100%;margin-top:10px}.btn2{border:1px solid var(--line);background:#0b1425;color:var(--text);border-radius:14px;padding:11px 12px;font-weight:900;width:100%;margin-top:8px}
-.code{background:#07101f;border:1px solid var(--line);border-radius:16px;padding:12px;white-space:pre-wrap;color:#bcd2e9;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;overflow:auto}
-.sourceGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.source{border:1px solid var(--line);border-radius:16px;padding:13px;background:#0b1425}.source b{display:block}.source small{color:var(--muted);display:block;margin-top:5px}
-@media(max-width:430px){.big{font-size:30px}.grid{grid-template-columns:1fr 1fr}.tabs{grid-template-columns:repeat(4,1fr)}.assetGrid{grid-template-columns:1fr 1fr}.sourceGrid{grid-template-columns:1fr}.ring{width:92px;height:92px}.ringInner{width:68px;height:68px}}
+input{width:100%;background:#07101f;color:var(--text);border:1px solid var(--line);border-radius:12px;padding:11px;font-size:15px}
+.btn{border:0;background:var(--cyan);color:#03111b;border-radius:14px;padding:12px 14px;font-weight:950;width:100%;margin-top:10px}
+@media(max-width:430px){.big{font-size:34px}.assetGrid{grid-template-columns:1fr 1fr}.ring{width:92px;height:92px}.ringInner{width:68px;height:68px}}
 </style>
 </head>
 <body>
@@ -49,10 +46,10 @@ textarea{min-height:80px}.btn{border:0;background:var(--cyan);color:#03111b;bord
   <div class="top">
     <div>
       <div class="logo">InvestMate AI</div>
-      <h1>InvestMate Web v2.1</h1>
-      <div class="muted">Мобильная web-версия · готова для GitHub Pages · один файл index.html</div>
+      <h1>InvestMate Web v2.2</h1>
+      <div class="muted">Исправлено: Investment IQ, карточки портфеля и утренний брифинг</div>
     </div>
-    <div class="status" id="dataStatus">🌐 Web</div>
+    <div class="status">🌐 Web</div>
   </div>
 
   <section class="card hero">
@@ -65,30 +62,28 @@ textarea{min-height:80px}.btn{border:0;background:var(--cyan);color:#03111b;bord
       <div class="mini"><span>Гарант. доход</span><b>₪6,500/мес</b></div>
       <div class="mini"><span>Investment IQ</span><b id="iqMini">0/100</b></div>
       <div class="mini"><span>USD/ILS</span><b id="fxMini">2.99</b></div>
-      <div class="mini"><span>Data Quality</span><b id="qualityMini">Manual</b></div>
+      <div class="mini"><span>Сегодня США</span><b id="todayPnlMini">$0</b></div>
     </div>
   </section>
 
   <div class="tabs">
     <button class="active" onclick="showTab('today',this)">Сегодня</button>
     <button onclick="showTab('portfolio',this)">Портфель</button>
-    <button onclick="showTab('datahub',this)">Data</button>
-    <button onclick="showTab('sandbox',this)">Песоч.</button>
     <button onclick="showTab('pension',this)">Пенсия</button>
-    <button onclick="showTab('events',this)">События</button>
     <button onclick="showTab('ai',this)">AI</button>
-    <button onclick="showTab('journal',this)">Журнал</button>
   </div>
 
   <main id="today">
     <div class="section">Утренний брифинг</div>
     <section class="card brief" id="brief"></section>
+
     <div class="section">Что изменилось в деньгах</div>
     <section class="card" id="moneyImpact"></section>
+
     <div class="section">Здоровье портфеля</div>
     <section class="card">
       <div class="ringWrap">
-        <div class="ring"><div class="ringInner" id="iqRing">0</div></div>
+        <div class="ring" id="iqRingOuter"><div class="ringInner" id="iqRing">0</div></div>
         <div class="reason" id="healthText"></div>
       </div>
     </section>
@@ -97,56 +92,9 @@ textarea{min-height:80px}.btn{border:0;background:var(--cyan);color:#03111b;bord
   <main id="portfolio" class="hidden">
     <div class="section">США · Meitav</div>
     <section class="card" id="usAssets"></section>
+
     <div class="section">Израиль · ILS</div>
     <section class="card" id="ilAssets"></section>
-  </main>
-
-  <main id="datahub" class="hidden">
-    <div class="section">Data Hub</div>
-    <section class="card brief">
-      <b>v2.0 — это не “живые котировки” напрямую.</b><br>
-      Это слой данных: здесь можно вручную обновлять цены сегодня, а позже подключить API. Без сервера один HTML-файл не может надежно получать все котировки США + TASE из-за CORS, лицензий и ограничений источников.
-    </section>
-
-    <section class="card">
-      <div class="grid">
-        <div><span class="muted">USD/ILS</span><input id="fxInput" type="number" value="2.99" step="0.01" oninput="render()"></div>
-        <div><span class="muted">Доходность, %</span><input id="yieldRate" type="number" value="4" step="0.5" oninput="render()"></div>
-      </div>
-      <button class="btn" onclick="applySampleMove()">Смоделировать обновление цен</button>
-      <button class="btn2" onclick="resetPrices()">Вернуть базовые цены</button>
-    </section>
-
-    <div class="section">Редактор цен США</div>
-    <section class="card" id="priceEditor"></section>
-
-    <div class="section">Источники данных</div>
-    <section class="card">
-      <div class="sourceGrid">
-        <div class="source"><b>US prices</b><small>Yahoo/Polygon/Twelve Data. Нужен API или сервер.</small></div>
-        <div class="source"><b>TASE prices</b><small>Биржа Израиля / банк / экспорт CSV. Лучше через импорт.</small></div>
-        <div class="source"><b>USD/ILS</b><small>Можно получать через FX API. Пока ручной ввод.</small></div>
-        <div class="source"><b>News/events</b><small>RSS/API + AI фильтр по вашим темам.</small></div>
-      </div>
-    </section>
-  </main>
-
-  <main id="sandbox" class="hidden">
-    <div class="section">Песочница решений</div>
-    <section class="card">
-      <div class="grid">
-        <div><span class="muted">Действие</span><select id="scenarioAction" onchange="simulate()">
-          <option value="sell_nvda_100">Продать 100 NVDA</option>
-          <option value="sell_soxl_50">Продать 50 SOXL</option>
-          <option value="sell_soxl_all">Продать весь SOXL</option>
-          <option value="add_cash_ils_50000">Добавить ₪50,000 в Керен Каспит</option>
-          <option value="add_dividend_10000">Перевести $10,000 в дивидендные ETF</option>
-        </select></div>
-        <div><span class="muted">Доходность сценария, %</span><input id="scenarioYield" type="number" value="4" step="0.5" oninput="simulate()"></div>
-      </div>
-      <button class="btn" onclick="simulate()">Рассчитать сценарий</button>
-    </section>
-    <section class="card" id="scenarioResult"></section>
   </main>
 
   <main id="pension" class="hidden">
@@ -156,6 +104,7 @@ textarea{min-height:80px}.btn{border:0;background:var(--cyan);color:#03111b;bord
       <div class="big">₪6,500/мес</div>
       <div class="muted">Пенсия ₪4,000 + Битуах Леуми ₪2,500</div>
     </section>
+
     <section class="card">
       <div class="row"><span>Пенсия</span><b>₪4,000</b></div>
       <div class="row"><span>Битуах Леуми</span><b>₪2,500</b></div>
@@ -163,58 +112,46 @@ textarea{min-height:80px}.btn{border:0;background:var(--cyan);color:#03111b;bord
       <div class="row"><span>Инвестиционный доход</span><b id="monthlyInvestmentIncome" class="yellow">расчет</b></div>
       <div class="row"><span>Итого потенциально</span><b id="totalMonthlyIncome" class="cyan">расчет</b></div>
     </section>
-  </main>
 
-  <main id="events" class="hidden">
-    <div class="section">Центр событий</div>
-    <section class="card brief">
-      <span class="pill">AI</span><span class="pill">Semiconductors</span><span class="pill">Memory</span><span class="pill">Software</span><span class="pill">Cybersecurity</span><span class="pill">Dividends</span><span class="pill">REIT</span><span class="pill">TASE</span><span class="pill">Fed</span><span class="pill">Bank of Israel</span>
-      <br><br>В v2.0 это карта тем. В v3.0 сюда надо подключать реальные новости и AI-фильтр важности.
+    <section class="card">
+      <div class="label">Параметры расчета</div>
+      <div class="grid">
+        <div><span class="muted">USD/ILS</span><input id="fxInput" type="number" value="2.99" step="0.01" oninput="render()"></div>
+        <div><span class="muted">Доходность, %</span><input id="yieldRate" type="number" value="4" step="0.5" oninput="render()"></div>
+      </div>
     </section>
   </main>
 
   <main id="ai" class="hidden">
     <div class="section">AI-директор</div>
     <section class="card brief" id="aiDirector"></section>
-    <section class="card danger brief">
-      <b>Жестко:</b><br>SOXL нельзя считать пенсионным активом. Это ускоритель риска. Его доля должна иметь лимит.
-    </section>
-  </main>
 
-  <main id="journal" class="hidden">
-    <div class="section">Журнал решений</div>
-    <section class="card">
-      <div class="grid">
-        <div><span class="muted">Тип</span><select id="journalType"><option>Покупка</option><option>Продажа</option><option>Ребалансировка</option><option>Идея</option><option>Отказ</option></select></div>
-        <div><span class="muted">Актив</span><input id="journalAsset" value="SOXL"></div>
-      </div>
-      <div style="margin-top:10px"><span class="muted">Причина</span><textarea id="journalReason">Контроль риска перед пенсией</textarea></div>
-      <button class="btn" onclick="addJournalEntry()">Добавить запись</button>
-      <button class="btn2" onclick="clearJournal()">Очистить журнал</button>
+    <div class="section">Центр событий</div>
+    <section class="card brief">
+      <span class="pill">AI</span><span class="pill">Semiconductors</span><span class="pill">Memory</span><span class="pill">Software</span><span class="pill">Cybersecurity</span><span class="pill">Dividends</span><span class="pill">REIT</span><span class="pill">TASE</span><span class="pill">Fed</span><span class="pill">Bank of Israel</span>
+      <br><br>
+      Следующий этап — подключить реальные источники данных и фильтр новостей по вашим темам.
     </section>
-    <section class="card" id="journalList"></section>
-    <section class="card brief" id="journalAnalysis"></section>
   </main>
 </div>
 
 <script>
-const baseUs = [
+const us = [
   {symbol:'DRAM', name:'Roundhill Memory ETF', qty:100, avg:70.5479, price:64.78, dayPnl:-108.00, type:'Memory ETF', risk:'High'},
   {symbol:'NVDA', name:'Nvidia Corp', qty:500, avg:57.0929, price:197.63, dayPnl:25.00, type:'AI / Stock', risk:'High'},
   {symbol:'SOXL', name:'Direxion Daily Semiconductor Bull 3x', qty:100, avg:60.7484, price:224.52, dayPnl:697.00, type:'3x Leveraged ETF', risk:'Extreme'},
   {symbol:'SOXQ', name:'Invesco Semiconductor ETF', qty:40, avg:111.00, price:106.85, dayPnl:69.60, type:'Semiconductor ETF', risk:'High'},
   {symbol:'SPYM', name:'S&P 500 Momentum', qty:100, avg:88.64, price:88.05, dayPnl:28.00, type:'Momentum ETF', risk:'Medium'}
 ];
-let us = JSON.parse(localStorage.getItem('investmate_us_prices_v2') || JSON.stringify(baseUs));
 
 const il = [
-  {symbol:'5112628', name:'125 ת״א A4', qty:80, avg:459.34, price:430.87, currency:'ILS_AGOROT', type:'TASE Fund', risk:'Medium'},
-  {symbol:'5122965', name:'Nasdaq 100 monthly hedged', qty:200, avg:378.07, price:381.38, currency:'ILS_AGOROT', type:'TASE Nasdaq', risk:'High'},
-  {symbol:'1161827', name:'Harel Technology', qty:160, avg:292.11, price:281.10, currency:'ILS_AGOROT', type:'TASE Tech', risk:'High'},
-  {symbol:'1194141', name:'Keren Gidur Strategy-Multi', valueIls:10000, currency:'ILS', type:'Hedge Fund', risk:'Medium'},
-  {symbol:'1194232', name:'Long-short fund', valueIls:3000, currency:'ILS', type:'Hedge Fund', risk:'Medium'},
-  {symbol:'5136866', name:'Keren Kaspit', valueIls:36000, currency:'ILS', type:'Cash Fund', risk:'Low'},
-  {symbol:'HISHTALMUT', name:'Keren Hishtalmut', valueIls:185000, currency:'ILS', type:'Long-term / Pension asset', risk:'Medium'}
+  {symbol:'5112628', name:'125 TA A4', qty:80, avg:459.34, price:430.87, type:'TASE Fund', risk:'Medium'},
+  {symbol:'5122965', name:'Nasdaq 100 monthly hedged', qty:200, avg:378.07, price:381.38, type:'TASE Nasdaq', risk:'High'},
+  {symbol:'1161827', name:'Harel Technology', qty:160, avg:292.11, price:281.10, type:'TASE Tech', risk:'High'},
+  {symbol:'1194141', name:'Keren Gidur Strategy-Multi', valueIls:10000, type:'Hedge Fund', risk:'Medium'},
+  {symbol:'1194232', name:'Long-short fund', valueIls:3000, type:'Hedge Fund', risk:'Medium'},
+  {symbol:'5136866', name:'Keren Kaspit', valueIls:36000, type:'Cash Fund', risk:'Low'},
+  {symbol:'HISHTALMUT', name:'Keren Hishtalmut', valueIls:185000, type:'Long-term / Pension asset', risk:'Medium'}
 ];
 
 function moneyUsd(v){return '$'+Math.round(v).toLocaleString('en-US')}
@@ -225,16 +162,24 @@ function usCost(p){return p.qty*p.avg}
 function ilValue(p){return p.valueIls ? p.valueIls : p.qty*p.price/100}
 function ilCost(p){return p.valueIls ? p.valueIls : p.qty*p.avg/100}
 function totals(fx){
-  const usTotal=us.reduce((s,p)=>s+usValue(p),0), usDay=us.reduce((s,p)=>s+(p.dayPnl||0),0);
-  const ilTotal=il.reduce((s,p)=>s+ilValue(p),0), totalUsd=usTotal+ilTotal/fx, totalIls=usTotal*fx+ilTotal;
+  const usTotal=us.reduce((s,p)=>s+usValue(p),0);
+  const usDay=us.reduce((s,p)=>s+(p.dayPnl||0),0);
+  const ilTotal=il.reduce((s,p)=>s+ilValue(p),0);
+  const totalUsd=usTotal+ilTotal/fx;
+  const totalIls=usTotal*fx+ilTotal;
   const nvdaWeight=usValue(us.find(p=>p.symbol==='NVDA'))/totalUsd*100;
   const soxlWeight=usValue(us.find(p=>p.symbol==='SOXL'))/totalUsd*100;
-  const iq=Math.max(60,Math.round(88-Math.max(0,nvdaWeight-35)*0.3-soxlWeight*0.25));
+  let iq=88;
+  if(nvdaWeight>35) iq -= (nvdaWeight-35)*0.45;
+  iq -= soxlWeight*0.35;
+  iq = Math.max(60, Math.min(92, Math.round(iq)));
   return {usTotal,usDay,ilTotal,totalUsd,totalIls,nvdaWeight,soxlWeight,iq}
 }
 function render(){
-  const fx=Number(document.getElementById('fxInput')?.value||2.99), y=Number(document.getElementById('yieldRate')?.value||4)/100;
-  const t=totals(fx), monthly=t.totalIls*y/12;
+  const fx=Number(document.getElementById('fxInput')?.value||2.99);
+  const y=Number(document.getElementById('yieldRate')?.value||4)/100;
+  const t=totals(fx);
+  const monthly=t.totalIls*y/12;
   document.getElementById('totalCapital').textContent=moneyUsd(t.totalUsd);
   document.getElementById('totalCapitalSub').textContent='≈ '+moneyIls(t.totalIls)+' · США '+moneyUsd(t.usTotal)+' · Израиль '+moneyIls(t.ilTotal)+' · USD/ILS '+fx.toFixed(2);
   document.getElementById('usValueMini').textContent=moneyUsd(t.usTotal);
@@ -243,55 +188,35 @@ function render(){
   document.getElementById('todayPnlMini').textContent=moneyUsd(t.usDay);
   document.getElementById('iqMini').textContent=t.iq+'/100';
   document.getElementById('iqRing').textContent=t.iq;
-  document.querySelector('.ring').style.background=`conic-gradient(var(--green) 0 ${t.iq}%, #273854 ${t.iq}% 100%)`;
+  document.getElementById('iqRingOuter').style.background=`conic-gradient(var(--green) 0 ${t.iq}%, #273854 ${t.iq}% 100%)`;
 
-  document.getElementById('brief').innerHTML=`<b>Что произошло:</b><br>Портфель США: <b>${moneyUsd(t.usTotal)}</b>. Сегодня: <b class="${cls(t.usDay)}">${moneyUsd(t.usDay)}</b>.<br><br><b>Что важно:</b><br>NVDA около <b>${t.nvdaWeight.toFixed(1)}%</b>, SOXL около <b>${t.soxlWeight.toFixed(1)}%</b> общего капитала.<br><br><b>Что делать сегодня:</b><br>Не увеличивать SOXL. В v2.0 главный шаг — наладить обновление данных.`;
+  document.getElementById('brief').innerHTML=`<b>Что произошло:</b><br>Портфель США: <b>${moneyUsd(t.usTotal)}</b>. Сегодня: <b class="${cls(t.usDay)}">${moneyUsd(t.usDay)}</b>.<br><br><b>Что важно:</b><br>NVDA около <b>${t.nvdaWeight.toFixed(1)}%</b>, SOXL около <b>${t.soxlWeight.toFixed(1)}%</b> общего капитала.<br><br><b>Что делать сегодня:</b><br>Не увеличивать SOXL. Контролировать концентрацию NVDA и 3× риск.`;
+
   document.getElementById('moneyImpact').innerHTML=us.slice().sort((a,b)=>Math.abs(b.dayPnl||0)-Math.abs(a.dayPnl||0)).map(p=>`<div class="row"><span>${p.symbol} · ${p.name}</span><b class="${cls(p.dayPnl||0)}">${moneyUsd(p.dayPnl||0)}</b></div>`).join('');
-  document.getElementById('healthText').innerHTML=`<b>Investment IQ: ${t.iq}/100</b><br>+ капитал существенный<br>+ гарантированный доход ₪6,500/мес<br>+ Израильская часть снижает риск<br>− NVDA ${t.nvdaWeight.toFixed(1)}% — концентрация<br>− SOXL ${t.soxlWeight.toFixed(1)}% — 3× риск`;
+
+  document.getElementById('healthText').innerHTML=`<b>Investment IQ: ${t.iq}/100</b><br>+ капитал существенный<br>+ гарантированный доход ₪6,500/мес<br>+ Израильская часть снижает общий риск<br>− NVDA ${t.nvdaWeight.toFixed(1)}% — концентрация<br>− SOXL ${t.soxlWeight.toFixed(1)}% — 3× leveraged ETF`;
 
   document.getElementById('usAssets').innerHTML=us.map(p=>{
     const value=usValue(p), pnl=value-usCost(p), weight=value/t.totalUsd*100;
     return `<div class="asset"><div class="assetTop"><div><b>${p.symbol}</b><small>${p.name} · ${p.type}</small></div><div class="right"><b>${moneyUsd(value)}</b><small>${weight.toFixed(1)}% всего</small></div></div><div class="assetGrid"><div>Кол-во<strong>${p.qty}</strong></div><div>Цена<strong>$${p.price.toFixed(2)}</strong></div><div>P/L<strong class="${cls(pnl)}">${moneyUsd(pnl)}</strong></div><div>Сегодня<strong class="${cls(p.dayPnl||0)}">${moneyUsd(p.dayPnl||0)}</strong></div></div><div class="bar"><div class="fill" style="width:${Math.min(weight,100)}%"></div></div></div>`;
   }).join('');
+
   document.getElementById('ilAssets').innerHTML=il.map(p=>{
     const value=ilValue(p), pnl=value-ilCost(p), weight=(value/fx)/t.totalUsd*100, price=p.price?(p.price/100).toFixed(2)+' ₪':'ручная сумма';
-    return `<div class="asset"><div class="assetTop"><div><b>${p.symbol}</b><small>${p.name} · ${p.type}</small></div><div class="right"><b>${moneyIls(value)}</b><small>${weight.toFixed(1)}% всего</small></div></div><div class="assetGrid"><div>Кол-во<strong>${p.qty||'-'}</strong></div><div>Цена<strong>${price}</strong></div><div>P/L<strong class="${cls(pnl)}">${moneyIls(pnl)}</strong></div><div>Риск<strong>${p.risk}</strong></div></div></div>`;
+    return `<div class="asset"><div class="assetTop"><div><b>${p.symbol}</b><small>${p.name} · ${p.type}</small></div><div class="right"><b>${moneyIls(value)}</b><small>${weight.toFixed(1)}% всего</small></div></div><div class="assetGrid"><div>Кол-во<strong>${p.qty||'-'}</strong></div><div>Цена<strong>${price}</strong></div><div>P/L<strong class="${cls(pnl)}">${moneyIls(pnl)}</strong></div><div>Риск<strong>${p.risk}</strong></div></div><div class="bar"><div class="fill" style="width:${Math.min(weight,100)}%"></div></div></div>`;
   }).join('');
+
   document.getElementById('monthlyInvestmentIncome').textContent=moneyIls(monthly)+'/мес';
   document.getElementById('totalMonthlyIncome').textContent=moneyIls(6500+monthly)+'/мес';
-  document.getElementById('aiDirector').innerHTML=`<b>Решение дня:</b><br>Не менять структуру. Сначала отладить Data Hub и ручное обновление котировок.<br><br><b>Почему:</b><br>Без надежного слоя данных AI-анализ будет красиво звучать, но может быть неверным.`;
-  renderPriceEditor();
-  simulate();
-  renderJournal();
+
+  document.getElementById('aiDirector').innerHTML=`<b>Решение дня:</b><br>Держать структуру без изменений. Не увеличивать SOXL и не наращивать NVDA без ребаланса.<br><br><b>Почему:</b><br>Портфель уже сильно зависит от AI/semiconductors. До пенсии меньше трех лет, поэтому рост важен, но риск просадки уже критичен.<br><br><b>Пенсионный контекст:</b><br>При ставке ${(y*100).toFixed(1)}% инвестиционный капитал теоретически дает около <b>${moneyIls(monthly)}/мес</b> сверх гарантированных ₪6,500.`;
 }
-function renderPriceEditor(){
-  document.getElementById('priceEditor').innerHTML=us.map((p,i)=>`<div class="row"><span>${p.symbol}</span><b style="min-width:120px"><input type="number" value="${p.price}" step="0.01" onchange="updatePrice(${i},this.value)"></b></div>`).join('');
+function showTab(id,btn){
+  ['today','portfolio','pension','ai'].forEach(x=>document.getElementById(x).classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
 }
-function updatePrice(i,v){us[i].price=Number(v); localStorage.setItem('investmate_us_prices_v2',JSON.stringify(us)); document.getElementById('dataStatus').textContent='🟢 Manual Updated'; document.getElementById('qualityMini').textContent='Updated'; render();}
-function applySampleMove(){us=us.map(p=>({...p, price:p.price*(1+(Math.random()-.45)/30), dayPnl:(Math.random()-.45)*900})); localStorage.setItem('investmate_us_prices_v2',JSON.stringify(us)); render();}
-function resetPrices(){us=JSON.parse(JSON.stringify(baseUs)); localStorage.removeItem('investmate_us_prices_v2'); render();}
-function simulate(){
-  const fx=Number(document.getElementById('fxInput')?.value||2.99), y=Number(document.getElementById('scenarioYield')?.value||4)/100;
-  const action=document.getElementById('scenarioAction')?.value||'sell_nvda_100', base=totals(fx);
-  let cashUsd=0,cashIls=0,newUs=JSON.parse(JSON.stringify(us)),title='',explanation='';
-  const find=sym=>newUs.find(p=>p.symbol===sym);
-  if(action==='sell_nvda_100'){let p=find('NVDA');cashUsd+=100*p.price;p.qty-=100;title='Продать 100 NVDA';explanation='Снижает концентрацию.'}
-  if(action==='sell_soxl_50'){let p=find('SOXL');cashUsd+=50*p.price;p.qty-=50;title='Продать 50 SOXL';explanation='Снижает 3× риск.'}
-  if(action==='sell_soxl_all'){let p=find('SOXL');cashUsd+=p.qty*p.price;p.qty=0;title='Продать весь SOXL';explanation='Резко снижает риск просадки.'}
-  if(action==='add_cash_ils_50000'){cashIls+=50000;title='Добавить ₪50,000 в Керен Каспит';explanation='Увеличивает шекелевую подушку.'}
-  if(action==='add_dividend_10000'){cashUsd-=10000;title='Перевести $10,000 в дивидендные ETF';explanation='Увеличивает денежный поток.'}
-  const newUsTotal=newUs.reduce((s,p)=>s+p.qty*p.price,0)+cashUsd, ilTotal=il.reduce((s,p)=>s+ilValue(p),0)+cashIls;
-  const totalUsd=newUsTotal+ilTotal/fx,totalIls=newUsTotal*fx+ilTotal,nvda=find('NVDA').qty*find('NVDA').price/totalUsd*100,soxl=find('SOXL').qty*find('SOXL').price/totalUsd*100;
-  const iq=Math.max(60,Math.round(88-Math.max(0,nvda-35)*0.3-soxl*0.25)), baseIncome=base.totalIls*y/12,newIncome=totalIls*y/12;
-  document.getElementById('scenarioResult').innerHTML=`<b class="cyan">${title}</b><br><br>${explanation}<br><br><div class="row"><span>Investment IQ</span><b>${base.iq}/100 → <span class="${iq>=base.iq?'green':'red'}">${iq}/100</span></b></div><div class="row"><span>NVDA</span><b>${base.nvdaWeight.toFixed(1)}% → ${nvda.toFixed(1)}%</b></div><div class="row"><span>SOXL</span><b>${base.soxlWeight.toFixed(1)}% → ${soxl.toFixed(1)}%</b></div><div class="row"><span>Инвест. доход</span><b>${moneyIls(baseIncome)} → ${moneyIls(newIncome)}</b></div>`;
-}
-const defaultJournal=[{date:'2026-07-02',type:'Переход v2.0',asset:'Data Hub',reason:'Добавлен слой ручного обновления цен и подготовка к API.'}];
-function getJournal(){try{return JSON.parse(localStorage.getItem('investmate_journal_v2'))||defaultJournal}catch(e){return defaultJournal}}
-function saveJournal(x){localStorage.setItem('investmate_journal_v2',JSON.stringify(x))}
-function addJournalEntry(){const items=getJournal();items.unshift({date:new Date().toISOString().slice(0,10),type:journalType.value,asset:journalAsset.value,reason:journalReason.value});saveJournal(items);renderJournal()}
-function clearJournal(){localStorage.removeItem('investmate_journal_v2');renderJournal()}
-function renderJournal(){if(!document.getElementById('journalList'))return;const items=getJournal();journalList.innerHTML=items.map(x=>`<div class="asset"><b>${x.date} · ${x.type} · ${x.asset}</b><small>${x.reason}</small></div>`).join('');journalAnalysis.innerHTML=`<b>Записей:</b> ${items.length}<br>Смысл журнала — проверять качество решений, а не только доходность.`}
-function showTab(id,btn){['today','portfolio','datahub','sandbox','pension','events','ai','journal'].forEach(x=>document.getElementById(x).classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(id==='sandbox')simulate();}
 render();
 </script>
 </body>
